@@ -33,9 +33,7 @@ setup(
         "Bug Tracker": "https://github.com/djoroya/djlmp/issues",
     },
     # from requeriments.txt
-    install_requires=[
-
-    ],
+    install_requires=open('requirements.txt').read().split('\n'),
     python_requires='>=3.6',  # Versión mínima de Python requerida
     classifiers=[  # Clasificadores que ayudan a otros desarrolladores a encontrar tu proyecto
         "Programming Language :: Python :: 3",

@@ -9,4 +9,5 @@ djlmp/windows.py
 djlmp.egg-info/PKG-INFO
 djlmp.egg-info/SOURCES.txt
 djlmp.egg-info/dependency_links.txt
+djlmp.egg-info/requires.txt
 djlmp.egg-info/top_level.txt
