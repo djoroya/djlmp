@@ -6,7 +6,7 @@ folder_file = os.path.join(os.path.dirname(__file__))
 
 
 
-if not os.name == "nt":
+if os.name == "nt":
     from djlmp.windows import windows
     lmp = windows()
 
