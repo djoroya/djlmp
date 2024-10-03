@@ -3,6 +3,7 @@ MANIFEST.in
 README.md
 setup.py
 djlmp/__init__.py
+djlmp/installLammps.py
 djlmp/runlmp.py
 djlmp.egg-info/PKG-INFO
 djlmp.egg-info/SOURCES.txt

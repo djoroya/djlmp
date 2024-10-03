@@ -7,3 +7,4 @@ dist/
 output/
 *.ipynb
 simulations/
+djlmp/lammps

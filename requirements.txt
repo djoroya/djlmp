@@ -1,2 +1,2 @@
-"git+https://github.com/djoroya/loadjson.git"
-colorama
+requests
+tqdm
