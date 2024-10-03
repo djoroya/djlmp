@@ -45,4 +45,7 @@ setup(
     include_package_data=True,
     package_data={
     },
+    cmdclass={
+        'install': CustomInstallCommand,  # Sobrescribir el comando de instalación
+    }
 )
