@@ -14,12 +14,13 @@ else:
     if not os.path.exists(folder_file_lmp):
         print("Its the first time you run this code, so we need to install lammps")
         installLammps(folder_file)
+        lmp = os.path.join(folder_file_lmp,"build","lmp")
+
     else:
-        print("Lammps already installed")
         lmp = os.path.join(folder_file_lmp,"build","lmp")
 
 
-def runlmp(output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
+def runlmp(namefile,output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
     """
     Run lammps in a given folder.
     """
@@ -41,10 +42,24 @@ def runlmp(output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
         error = os.system(cmd)
         os.chdir(curr)
     else:
-        os.environ["OMP_NUM_THREADS"] = "2"
-        np = 4
-        mpirun = "mpirun -np {} ".format(np)
-        cmd = mpirun+lmp+" -in in.lammps > out.lammps"
+        if mpi:
+            mpirun = "mpirun -np {} ".format(mpi_np)
+        else:
+            mpirun = ""
+        # error file error.lammps
+        cmd = mpirun + lmp+" -in "+ namefile + " > out.lammps 2> msg.lammps"
+
+        # show cmd
+        long = len(cmd)
+
+        print(long*"="+ "\n")
+
+        print(" output: "+os.path.join(abs_out,"out.lammps"))
+
+
+        print("\n cmd   : "+cmd+"\n")
+        print(long*"=")
+
         error = os.system(cmd)
 
     os.chdir(curr)
