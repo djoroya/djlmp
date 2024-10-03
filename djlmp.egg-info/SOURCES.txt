@@ -5,6 +5,7 @@ setup.py
 djlmp/__init__.py
 djlmp/installLammps.py
 djlmp/runlmp.py
+djlmp/windows.py
 djlmp.egg-info/PKG-INFO
 djlmp.egg-info/SOURCES.txt
 djlmp.egg-info/dependency_links.txt
