@@ -14,12 +14,12 @@ class CustomInstallCommand(install):
         
 
         print("Instalando LAMMPS en {}".format(folder_target))
-        
+
         # Continúa con la instalación normal del paquete
         install.run(self)
 
 setup(
-    name="runstep",
+    name="djlmp",
     version="0.1.0",
     description="",
     long_description=open('README.md').read(),

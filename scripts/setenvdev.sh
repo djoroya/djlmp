@@ -14,4 +14,4 @@ with open(os.path.join(site[0], 'conda.pth'), 'w') as f:
     f.write(cwd)
 EOF
 
-python -c "from runstep.runstep import runstep"
+python -c "from djlmp.djlmp import djlmp"

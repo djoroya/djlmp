@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: runstep
+Name: djlmp
 Version: 0.1.0
 Home-page: https://github.com/djoroya/djlmp
 Author: Deyviss Jesús Oroya Villalta
@@ -13,4 +13,4 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# runstep
+# djlmp
