@@ -51,7 +51,7 @@ def installLammps(folder_target, pkgs=pkgs_default):
         cmd_cmake += f" -D {pkg}=yes"
 
     cmd += cmd_cmake + " && make -j4"
-    cmd += " > build.log 2>&1"
+    cmd += " > build.log 2> build.err"
     
     # Ejecutar el comando de compilación y mostrar progreso simulado
     print("\nCompilando LAMMPS, esto puede tomar unos minutos...")
@@ -60,3 +60,21 @@ def installLammps(folder_target, pkgs=pkgs_default):
 
     print("Instalación completada.")
 
+
+def installLammpsindjl(pkgs=pkgs_default,force=False):
+
+    
+    
+    folder_target = os.path.dirname(os.path.abspath(__file__))
+    
+    # if exist folder lammps return 
+    exist_lammps = os.path.exists(os.path.join(folder_target, "lammps"))
+    if exist_lammps:
+        if force:
+            shutil.rmtree(os.path.join(folder_target, "lammps"))
+        else:
+            print("LAMMPS ya está instalado en la carpeta actual.")
+            return
+
+
+    installLammps(folder_target, pkgs)
