@@ -2,6 +2,7 @@ LICENSE
 MANIFEST.in
 README.md
 setup.py
+djlmp/PKG.txt
 djlmp/__init__.py
 djlmp/installLammps.py
 djlmp/runlmp.py

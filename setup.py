@@ -42,9 +42,6 @@ setup(
     ],
     include_package_data=True,
     package_data={
-        "PKG": ["PKG.txt"],
-    },
-    cmdclass={
-        'install': CustomInstallCommand,  # Sobrescribir el comando de instalación
+        "djlmp": ["*.txt"],
     }
 )
