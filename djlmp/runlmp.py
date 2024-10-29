@@ -11,13 +11,20 @@ if os.name == "nt":
     lmp = windows()
 
 else:
-    if not os.path.exists(folder_file_lmp):
-        print("Its the first time you run this code, so we need to install lammps")
-        installLammps(folder_file)
-        lmp = os.path.join(folder_file_lmp,"build","lmp")
+    # comprobe is DJLMP_LAMMPS exist
+    if "DJLMP_LAMMPS" in os.environ:
+        lmp = os.environ["DJLMP_LAMMPS"]
+        # check if the path is correct
+        # also lmp can be a command
 
     else:
-        lmp = os.path.join(folder_file_lmp,"build","lmp")
+        if not os.path.exists(folder_file_lmp):
+            print("Its the first time you run this code, so we need to install lammps")
+            installLammps(folder_file)
+            lmp = os.path.join(folder_file_lmp,"build","lmp")
+
+        else:
+            lmp = os.path.join(folder_file_lmp,"build","lmp")
 
 
 def runlmp(namefile,output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
