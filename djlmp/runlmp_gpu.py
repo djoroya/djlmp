@@ -27,6 +27,7 @@ else:
     else:
         if not os.path.exists(folder_file_lmp):
             print("Its the first time you run this code, so we need to install lammps")
+            print("GPU version")
             installLammps_gpu(folder_file)
             lmp = os.path.join(folder_file_lmp,"build","lmp")
 
@@ -46,7 +47,7 @@ def check_gpu_count():
         pass
     return 0
 
-def runlmp(outfolder, infile, OMP_NUM_THREADS=1, mpi=1, use_gpu=True):
+def runlmp(infile,outfolder, OMP_NUM_THREADS=1, mpi=1, use_gpu=True):
     """Run LAMMPS simulation with optional GPU support."""
     
     os.environ["OMP_NUM_THREADS"] = str(OMP_NUM_THREADS)
@@ -59,7 +60,7 @@ def runlmp(outfolder, infile, OMP_NUM_THREADS=1, mpi=1, use_gpu=True):
 
     try:
         # Base LAMMPS command
-        cmd = f"{lmp} -in {infile} > log.lammps &"
+        cmd = f"{lmp} -in {infile} > log.lammps"
         
         # Adjust for MPI
         if mpi > 1:
