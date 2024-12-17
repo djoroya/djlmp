@@ -6,6 +6,7 @@ djlmp/PKG.txt
 djlmp/__init__.py
 djlmp/installLammps.py
 djlmp/runlmp.py
+djlmp/runlmp_gpu.py
 djlmp/windows.py
 djlmp.egg-info/PKG-INFO
 djlmp.egg-info/SOURCES.txt
