@@ -1,31 +1,7 @@
 import os
-from djlmp.installLammps import installLammps
+from  .manage_install import manage_install
 
-folder_file_lmp = os.path.join(os.path.dirname(__file__), "lammps")
-folder_file = os.path.join(os.path.dirname(__file__))
-
-
-
-if os.name == "nt":
-    from djlmp.windows import windows
-    lmp = windows()
-
-else:
-    # comprobe is DJLMP_LAMMPS exist
-    if "DJLMP_LAMMPS" in os.environ:
-        lmp = os.environ["DJLMP_LAMMPS"]
-        # check if the path is correct
-        # also lmp can be a command
-
-    else:
-        if not os.path.exists(folder_file_lmp):
-            print("Its the first time you run this code, so we need to install lammps")
-            installLammps(folder_file)
-            lmp = os.path.join(folder_file_lmp,"build","lmp")
-
-        else:
-            lmp = os.path.join(folder_file_lmp,"build","lmp")
-
+lmp = manage_install()
 
 def runlmp(namefile,output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
     """
@@ -60,10 +36,7 @@ def runlmp(namefile,output_folder,OMP_NUM_THREADS=1,mpi=False,mpi_np=4):
         long = len(cmd)
 
         print(long*"="+ "\n")
-
         print(" output: "+os.path.join(abs_out,"out.lammps"))
-
-
         print("\n cmd   : "+cmd+"\n")
         print(long*"=")
 

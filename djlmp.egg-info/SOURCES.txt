@@ -5,6 +5,7 @@ setup.py
 djlmp/PKG.txt
 djlmp/__init__.py
 djlmp/installLammps.py
+djlmp/manage_install.py
 djlmp/runlmp.py
 djlmp/runlmp_gpu.py
 djlmp/windows.py
@@ -13,3 +14,4 @@ djlmp.egg-info/SOURCES.txt
 djlmp.egg-info/dependency_links.txt
 djlmp.egg-info/requires.txt
 djlmp.egg-info/top_level.txt
+djlmp/bin/lmp.zip

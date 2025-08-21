@@ -42,6 +42,6 @@ setup(
     ],
     include_package_data=True,
     package_data={
-        "djlmp": ["*.txt"],
+        "djlmp": ["*.txt","bin/*.zip"],
     }
 )

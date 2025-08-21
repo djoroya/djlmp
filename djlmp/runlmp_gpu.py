@@ -1,38 +1,8 @@
 import os
 import subprocess
-from djlmp.installLammps import installLammps_gpu
+from  .manage_install import manage_install
 
-
-if "DJLMP_LAMMPS_FOLDER" in os.environ.keys():
-    folder_file = os.environ["DJLMP_LAMMPS_FOLDER"]
-else:
-    folder_file = os.path.dirname(__file__)
-
-folder_file_lmp = os.path.join(folder_file, "lammps")
-
-
-
-
-if os.name == "nt":
-    from djlmp.windows import windows
-    lmp = windows()
-
-else:
-    # comprobe is DJLMP_LAMMPS exist
-    if "DJLMP_LAMMPS" in os.environ:
-        lmp = os.environ["DJLMP_LAMMPS"]
-        # check if the path is correct
-        # also lmp can be a command
-
-    else:
-        if not os.path.exists(folder_file_lmp):
-            print("Its the first time you run this code, so we need to install lammps")
-            print("GPU version")
-            installLammps_gpu(folder_file)
-            lmp = os.path.join(folder_file_lmp,"build","lmp")
-
-        else:
-            lmp = os.path.join(folder_file_lmp,"build","lmp")
+lmp = manage_install()
 
 def check_gpu_count():
     """Check the number of available GPUs using nvidia-smi."""
